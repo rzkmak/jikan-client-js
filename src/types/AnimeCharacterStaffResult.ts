@@ -1,10 +1,8 @@
+import { Base } from './Base';
 import { Character } from './character/Character'
 import { Staff } from './staff/Staff';
 
-export interface AnimeCharacterStaffResult {
+export interface AnimeCharacterStaffResult extends Base {
     readonly characters: Character[];
-    readonly request_cache_expiry: number;
-    readonly request_cached: boolean;
-    readonly request_hash: string;
     readonly staff: Staff[];
   }
