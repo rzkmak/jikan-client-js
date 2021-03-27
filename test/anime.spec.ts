@@ -85,3 +85,15 @@ describe("get anime forum by id", () => {
         expect(result).toStrictEqual(mockAnimeForumResponse);
     });
 });
+
+const mockAnimeMoreInfoResult = {request_hash:"request:anime:494e1998481ed34206c36d1376dafb98d3b5e941",request_cached:true,request_cache_expiry:86400,moreinfo:"moreinfo"}
+
+describe("get anime moreinfo by id", () => {
+    it("should return anime moreinfo by id", async () => {
+        nock("https://api.jikan.moe/v3/").get('/anime/100/moreinfo').reply(200, mockAnimeMoreInfoResult);
+
+        const anime = new Anime(100);
+        const result = await anime.getMoreInfo();
+        expect(result).toStrictEqual(mockAnimeMoreInfoResult);
+    });
+});
