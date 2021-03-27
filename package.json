@@ -1,6 +1,6 @@
 {
   "name": "jikan-client-js",
-  "version": "0.0.1",
+  "version": "0.0.2-dev",
   "description": "Client SDK of jikan.moe",
   "main": "index.js",
   "scripts": {
