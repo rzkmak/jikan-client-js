@@ -1,8 +1,8 @@
 {
   "name": "jikan-client-js",
-  "version": "0.0.2-dev",
+  "version": "0.0.7-dev",
   "description": "Client SDK of jikan.moe",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "prepare": "npm run build",
     "build": "./node_modules/.bin/tsc",
@@ -37,6 +37,9 @@
     ],
     "testRegex": "^.+\\.spec\\.ts$"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@types/got": "^9.6.11",
     "@types/lru-cache": "^5.1.0",
