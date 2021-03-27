@@ -6,4 +6,3 @@ export interface Genre {
     readonly type: ResourceType;
     readonly url: string;
   }
-  

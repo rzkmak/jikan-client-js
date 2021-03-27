@@ -41,13 +41,14 @@
     "dist"
   ],
   "dependencies": {
+    "@types/got": "^9.6.11",
     "@types/lru-cache": "^5.1.0",
     "@types/nock": "^11.1.0",
-    "@types/node-fetch": "^2.5.8",
     "@types/p-queue": "^3.2.1",
+    "got": "^11.8.2",
+    "ky": "^0.27.0",
     "lru-cache": "^6.0.0",
     "nock": "^13.0.11",
-    "node-fetch": "^2.6.1",
     "p-queue": "^6.6.2"
   }
 }
