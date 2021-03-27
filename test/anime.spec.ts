@@ -61,3 +61,15 @@ describe("get anime pv by id", () => {
         expect(result).toStrictEqual(mockAnimePvResponse);
     });
 });
+
+const mockAnimeStatsResponse = {request_hash:"request:anime:0ccc87712f4124d82479613070773b259b02da99",request_cached:true,request_cache_expiry:67361,watching:712311,completed:402,on_hold:9979,dropped:3480,plan_to_watch:163288,total:889460,scores:{"1":{votes:12037,percentage:3.1},"2":{votes:644,percentage:0.2},"3":{votes:558,percentage:0.1},"4":{votes:977,percentage:0.3},"5":{votes:1968,percentage:0.5},"6":{votes:4412,percentage:1.1},"7":{votes:13656,percentage:3.5},"8":{votes:39131,percentage:10.1},"9":{votes:92505,percentage:24},"10":{votes:219980,percentage:57}}}
+
+describe("get anime statistic by id", () => {
+    it("should return anime statistic by id", async () => {
+        nock("https://api.jikan.moe/v3/").get('/anime/100/stats').reply(200, mockAnimeStatsResponse);
+
+        const anime = new Anime(100);
+        const result = await anime.getStatistics();
+        expect(result).toStrictEqual(mockAnimeStatsResponse);
+    });
+});
