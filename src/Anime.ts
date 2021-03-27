@@ -8,6 +8,7 @@ import { AnimeForumResult } from "./types/AnimeForumResult";
 import { AnimeMoreInfoResult } from "./types/AnimeMoreInfoResult";
 import { AnimeReviewResult } from "./types/AnimeReviewResult";
 import { AnimeRecommendationResult } from "./types/AnimeRecommendationResult";
+import { AnimeUserUpdates } from "./types/AnimeUserUpdates";
 
 
 export interface AnimeContract {
@@ -21,6 +22,7 @@ export interface AnimeContract {
     getMoreInfo(): Promise<AnimeMoreInfoResult>;
     getReviews(page: number): Promise<AnimeReviewResult>;
     getRecommendations(): Promise<AnimeRecommendationResult>;
+    getUserUpdates(page: number): Promise<AnimeUserUpdates>
 }
 
 export class Anime implements AnimeContract {
@@ -69,4 +71,9 @@ export class Anime implements AnimeContract {
     async getRecommendations(): Promise<AnimeRecommendationResult> {
         return await request(`anime/${this.id}/recommendations`) as AnimeRecommendationResult;
     }
+
+    async getUserUpdates(page: number = 1): Promise<AnimeUserUpdates> {
+        return await request(`anime/${this.id}/userupdates/${page}`) as AnimeUserUpdates;
+    }
+
 }
