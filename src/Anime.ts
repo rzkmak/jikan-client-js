@@ -2,12 +2,14 @@ import { request } from "./processor/Request";
 import { AnimeResult } from "./types/AnimeResult";
 import { AnimeCharacterStaffResult } from "./types/AnimeCharacterStaffResult";
 import { AnimeEpisodesResult } from "./types/AnimeEpisodesResult";
+import { AnimeNewsResult } from "./types/AnimeNewsResult";
 
 
 export interface AnimeContract {
     get(): Promise<AnimeResult>;
     getCharacterStaff(): Promise<AnimeCharacterStaffResult>;
     getEpisodes(page: number): Promise<AnimeEpisodesResult>;
+    getNews(): Promise<AnimeNewsResult>;
 }
 
 export class Anime implements AnimeContract {
@@ -27,5 +29,9 @@ export class Anime implements AnimeContract {
 
     async getEpisodes(page: number = 1): Promise<AnimeEpisodesResult> {
         return await request(`anime/${this.id}/episodes/${page}`) as AnimeEpisodesResult;
+    }
+
+    async getNews(): Promise<AnimeNewsResult> {
+        return await request(`anime/${this.id}/news`) as AnimeNewsResult;
     }
 }
