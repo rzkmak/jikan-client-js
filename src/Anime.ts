@@ -10,6 +10,7 @@ export interface AnimeContract {
     getCharacterStaff(): Promise<AnimeCharacterStaffResult>;
     getEpisodes(page: number): Promise<AnimeEpisodesResult>;
     getNews(): Promise<AnimeNewsResult>;
+    getPV(): Promise<AnimeEpisodesResult>;
 }
 
 export class Anime implements AnimeContract {
@@ -33,5 +34,9 @@ export class Anime implements AnimeContract {
 
     async getNews(): Promise<AnimeNewsResult> {
         return await request(`anime/${this.id}/news`) as AnimeNewsResult;
+    }
+
+    async getPV(): Promise<AnimeEpisodesResult> {
+        return await request(`anime/${this.id}/videos`) as AnimeEpisodesResult;
     }
 }
