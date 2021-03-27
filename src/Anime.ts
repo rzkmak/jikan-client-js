@@ -13,7 +13,6 @@ export class Anime implements AnimeContract {
     }
 
     async get(): Promise<AnimeResult> {
-        const { body } =  await request(`anime/${this.id}`);
-        return JSON.parse(body) as AnimeResult;
+        return await request(`anime/${this.id}`) as AnimeResult;
     }
 }

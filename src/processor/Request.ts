@@ -1,4 +1,5 @@
 import got from "got";
+import fetch from "node-fetch";
 import PQueue from "p-queue";
 import { getCache, setCache } from "./Cache";
 
@@ -15,7 +16,7 @@ export async function request(url: string): Promise<any> {
         if (cachedResult) {
             return cachedResult;
         }
-        const result = got(url, {prefixUrl: baseUrl})
+        const result = (await fetch(`${baseUrl}${url}`)).json()
         setCache(url, result)
         return result;
     })
