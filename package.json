@@ -6,7 +6,7 @@
   "scripts": {
     "prepare": "npm run build",
     "build": "./node_modules/.bin/tsc",
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "./node_modules/.bin/tslint -p tsconfig.json --fix"
   },
   "repository": {

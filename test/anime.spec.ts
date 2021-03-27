@@ -102,7 +102,7 @@ const mockAnimeReviewsResult = {request_hash:"request:anime:eee67f8c16b470a41920
 
 describe("get anime reviews by id", () => {
     it("should return anime reviews by id", async () => {
-        nock("https://api.jikan.moe/v3/").get('/anime/100/reviews').reply(200, mockAnimeReviewsResult);
+        nock("https://api.jikan.moe/v3/").get('/anime/100/reviews/1').reply(200, mockAnimeReviewsResult);
 
         const anime = new Anime(100);
         const result = await anime.getReviews();

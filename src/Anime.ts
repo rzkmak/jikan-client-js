@@ -18,7 +18,7 @@ export interface AnimeContract {
     getStatistics(): Promise<AnimeStatisticResult>;
     getForum(): Promise<AnimeForumResult>;
     getMoreInfo(): Promise<AnimeMoreInfoResult>;
-    getReviews(): Promise<AnimeReviewResult>;
+    getReviews(page: number): Promise<AnimeReviewResult>;
 }
 
 export class Anime implements AnimeContract {
@@ -60,7 +60,7 @@ export class Anime implements AnimeContract {
         return await request(`anime/${this.id}/moreinfo`) as AnimeMoreInfoResult;
     }
 
-    async getReviews(): Promise<AnimeReviewResult> {
-        return await request(`anime/${this.id}/reviews`) as AnimeReviewResult;
+    async getReviews(page: number = 1): Promise<AnimeReviewResult> {
+        return await request(`anime/${this.id}/reviews/${page}`) as AnimeReviewResult;
     }
 }
