@@ -1,0 +1,43 @@
+import { Base } from "./Base";
+import { Airing } from "./airing/Airing";
+import { Related } from "./related/Related";
+import { Genre } from "./genre/Genre";
+
+export interface AnimeResult extends Base {
+    readonly aired: Airing;
+    readonly airing: boolean;
+    readonly background: string;
+    readonly broadcast: string;
+    readonly duration: string;
+    readonly ending_themes: string[];
+    readonly episodes: number;
+    readonly favorites: number;
+    readonly genres: Genre[];
+    readonly image_url: string;
+    readonly licensors: Genre[];
+    readonly mal_id: number;
+    readonly members: number;
+    readonly opening_themes: string[];
+    readonly popularity: number;
+    readonly premiered: string;
+    readonly producers: Genre[];
+    readonly rank: number;
+    readonly rating: string;
+    readonly related: Related;
+    readonly request_cache_expiry: number;
+    readonly request_cached: boolean;
+    readonly request_hash: string;
+    readonly score: number;
+    readonly scored_by: number;
+    readonly source: string;
+    readonly status: string;
+    readonly studios: Genre[];
+    readonly synopsis: string;
+    readonly title_english: string;
+    readonly title_japanese: string;
+    readonly title_synonyms: any[];
+    readonly title: string;
+    readonly trailer_url: string;
+    readonly type: string;
+    readonly url: string;
+}
